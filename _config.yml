@@ -28,7 +28,7 @@ navbar-links:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
     - GitHub Pages: "https://pages.github.com/"
-  Author's home: "http://deanattali.com"
+  Author's home: "http://umlaut.in"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -45,19 +45,19 @@ avatar: "/img/avatar-icon.png"
 author:
   name: Gagan B Mishra
   email: "gagan.mishra@gmail.com"
-  facebook: yourname  # eg. daattali
-  github: yourname    # eg. daattali
-  twitter: yourname   # eg. daattali
-  reddit: yourname    # eg. daattali
-  google-plus: +yourname   # eg. +DeanAttali or 109424658772469020925
-  linkedin: yourname  # eg. daattali
-  xing: yourname      # eg. daattali
-  stackoverflow: yourlink  # eg. "3943160/daattali"
-  snapchat: yourname  # eg. daattali
-  instagram: yourname # eg. daattali
-  youtube: yourlink   # eg. user/daattali or channel/daattali
-  spotify: yourname   # eg. daattali
-  telephone: yourphone   # eg. +14159998888
+  facebook: gagan.mishra.12  
+  github: gagan405
+  twitter: __gbm
+#  reddit: yourname   
+#  google-plus: +yourname
+  linkedin: gaganmishra 
+#  xing: yourname    
+  stackoverflow: 564503/gaganbm
+#  snapchat: yourname
+  instagram: gaganbm
+#  youtube: yourlink
+#  spotify: yourname
+#  telephone: yourphone
 
 # Select which links to show in the footer
 footer-links-active:
@@ -65,17 +65,17 @@ footer-links-active:
   facebook: true
   email: true
   twitter: true
-  google-plus: false
+#  google-plus: false
   github: true
-  reddit: false
-  linkedin: false
-  xing: false
-  stackoverflow: false
-  snapchat: false
-  instagram: false
-  youtube: false
-  spotify: false
-  telephone: false
+#  reddit: false
+  linkedin: true
+#  xing: false
+  stackoverflow: true
+#  snapchat: false
+  instagram: true
+#  youtube: false
+#  spotify: false
+#  telephone: false
 
 # Select which share links to show in posts
 share-links-active:
@@ -86,7 +86,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "umlaut.in"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
@@ -206,6 +206,3 @@ prose:
 
 gems:
   - jekyll-paginate
-
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
