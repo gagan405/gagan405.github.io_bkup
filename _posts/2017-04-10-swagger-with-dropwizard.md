@@ -8,7 +8,7 @@ Quite a sad story that `swagger (1.5.x)` does not go so smooth with `Dropwizard 
 
 I spent quite sometime around it to make it work. Here is a summary for later reference:
 
-##Joda LocalDateTime
+## Joda LocalDateTime
 
 Joda `LocalDateTime` objects are not serialized to human readable ISO date time formats, and rather they appear as a bunch of objects. This could be overcome in version 1.3 by adding a custom `ModelConverter` in swagger. Unfortunately that was deprecated in version 1.5.
 
@@ -30,7 +30,7 @@ Map<String, Model> definitions = swagger.getDefinitions();
   }
 ```
 
-##Snake Case
+## Snake Case
 
 Swagger also failed to generate proper example request/response objects if `@JsonSnakeCase` was mentioned. Basically, it just ignored it. Turned out, Swagger was using its own instance of `ObjectMapper`. To get this to work, I did an override of the default `ObjectMapper`.
 
@@ -56,7 +56,7 @@ try {
 return Response.ok(swaggerJson).build();
 ```
 
-##Authorization Header
+## Authorization Header
 
 In the generated json definition, I needed `Authorization` headers to be sent. Somehow, I couldn't figure out a way to do it with Dropwizard, and I ended up modifying the generated Swagger object to add the Authorization requirement.
 
@@ -72,6 +72,14 @@ Swagger swagger = (Swagger) response.getEntity();
       swagger.setSecurity(Lists.<SecurityRequirement>newArrayList(requirement)); 
 ```
 
-After all these changes, it generated the swagger definition json file correctly. I added all these changes to a resource class which extended the default `ApiListingResource`. The code can be found here.
+After all these changes, it generated the swagger definition json file correctly. I added all these changes to a resource class which extended the default `ApiListingResource`. The code can be found [here](https://github.com/gagan405/swagger_dropwizard_resource/blob/master/SwaggerHelperResource.java).
+
+### Misc
+
+I also added two of those findings as answers on StackOverflow.
+
+* http://stackoverflow.com/questions/40819084
+* http://stackoverflow.com/questions/40804899
+
    
 
