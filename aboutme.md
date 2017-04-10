@@ -1,16 +1,18 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+I am Gagan Mishra. I am a programmer. And I like [Umlaut](http://umlaut.in).
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+I am an Indian by nationality and currently living in Berlin, Germany. I like to travel, cycle, read books and write about things I like or dislike.
 
-What else do you need?
+- My career story on [linkedIn](https://www.linkedin.com/in/gaganmishra/)
+- Some of my projects on [Github](https://github.com/gagan405)
 
-### my history
+### Misc
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Some of my previous blogs *(Not exactly previous as I do keep them updated once in a while)* :
+
+- [The Bin](http://gaganmishra.wordpress.com)
+- [cafeaffe](http://cafeaffe.wordpress.com)
