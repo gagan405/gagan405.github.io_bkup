@@ -3,8 +3,8 @@
 /* --- General --- */
 
 body {
-  font-family: 'sans-serif','Lucida Grande', serif, 'Lora', 'Times New Roman', Verdana;
-  font-size: 17px;
+  font-family: Lora, 'sans-serif','Lucida Grande', serif, 'Times New Roman', Verdana;
+  font-size: 16px;
   color: #404040;
   position: relative;
   background: #FFF;
