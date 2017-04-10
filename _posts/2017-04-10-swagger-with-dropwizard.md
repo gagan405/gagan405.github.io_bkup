@@ -78,8 +78,8 @@ After all these changes, it generated the swagger definition json file correctly
 
 I also added two of those findings as answers on StackOverflow.
 
-* http://stackoverflow.com/questions/40819084
-* http://stackoverflow.com/questions/40804899
+* [http://stackoverflow.com/questions/40819084](http://stackoverflow.com/questions/40819084)
+* [http://stackoverflow.com/questions/40804899](http://stackoverflow.com/questions/40804899)
 
    
 
