@@ -3,7 +3,7 @@ layout: post
 title: CafeAffe on Github
 subtitle: Hello World for the umpteenth time
 ---
-<font face="Verdana" size="2" >
+
 Setting up my blog on Github. 
 
 I have travelled a lot now.
@@ -14,4 +14,4 @@ The same cafeaffe contents I moved to an EC2 machine on AWS. Created a subdomain
 
 So I came back to wordpress. And for some valid or invalid reason, I thought github would be a better choice. And this is how I am here, and will continue to add stuff here from now on.
 
-Cheers!</font>.
+Cheers!
