@@ -3,7 +3,7 @@
 /* --- General --- */
 
 body {
-  font-family: 'Verdana', serif, 'Lora', 'Times New Roman';
+  font-family: 'Verdana', 'sans-serif','Lucida Grande', serif, 'Lora', 'Times New Roman';
   font-size: 17px;
   color: #404040;
   position: relative;
@@ -339,7 +339,7 @@ footer .theme-by {
   margin: 0 0 10px;
 }
 .post-preview .post-entry {
-  font-family: 'Verdana', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lucida Grande', 'Verdana', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .post-entry-container {
   display: inline-block;
