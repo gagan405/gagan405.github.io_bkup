@@ -3,8 +3,8 @@
 /* --- General --- */
 
 body {
-  font-family: serif, 'verdana', 'Lora', 'Times New Roman';
-  font-size: 16px;
+  font-family: serif, 'Lora', 'verdana', 'Times New Roman';
+  font-size: 17px;
   color: #404040;
   position: relative;
   background: #FFF;
@@ -334,7 +334,7 @@ footer .theme-by {
 .post-heading .post-meta {
   color: #808080;
   font-size: 17px;
-  font-face: Lora;
+  font-family: Lora;
   font-style: italic;
   margin: 0 0 10px;
 }
