@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot -- Exceptions to Responses
+title: Spring Boot : Exceptions to Responses
 subtitle: Making sense of exceptions using Zalando Problems
 ---
 
