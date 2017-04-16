@@ -54,7 +54,7 @@ We need to provide this as a `ControllerAdvice` so that spring makes use of it.
 
 ```java
 @ControllerAdvice
-public class CustomExceptionHandler implements GproProblemHandling{
+public class CustomExceptionHandler implements CustomProblemHandling{
 }
 ```
 And thats it! You raise a `InvalidEmailException` and the appropriate response is returned.
