@@ -13,6 +13,6 @@ There is this nice Lombok plugin for IntelliJ which runs just fine. Of late, I d
 
 As such, it is confusing. There were the normal fields as anyone would expect in a pojo class, with `@Data` annotated which results in generation of getters, setters and equals and hashcode methods. Nothing so special about it. So, why was it saying there were two getter methods or two setter methods ?
 
-Later I realised there was another plugin installed which also does the lombok annotations processing, called Hrisey Plugin. 
+Later I realised there was another plugin installed which also does the lombok annotations processing, called [Hrisey Plugin](https://github.com/rohitbhatnagar85/garageplug-oms.git). 
 Disabled that, and ready to go!   
 
