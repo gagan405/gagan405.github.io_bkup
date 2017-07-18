@@ -34,7 +34,7 @@ The design runs for months. Literally! And it many times becomes frustrating. I 
 
 What I do like about  this is, they are extremely data driven. Unlike in india where many of the decisions were being taken on guess work, here every single thing is documented and analyzed. For example, if you are going to use Postgres, you will come up with extremely detailed analysis of how much time and space it will take, pros, cons everything! I never had such an encounter in India. For sure, these are very enlightening, in a way making you a domain expert. On the other hand, too much analysis leads to paralysis and the design phase just keeps on running on and on.
 
-Sprint planning and tasks :
+## Sprint planning and tasks :
 
 These people won’t touch a task unless all, each and every possible specifications are mentioned. In my previous experiences, we generally used to start coding with certain ’seemingly clear’ requirements and it was not rare to change the requirements time and again. Here, each task is properly defined (as opposed to usually 1 liners in india) with specifications and acceptance criteria and expected timelines. Separate ‘grooming’ sessions are done to ‘groom’ each and every task. The expected timelines are also taken on consensus where everyone votes his idea of expected man-hours in fibonacci numbers. A sprint planning is not complete without demos of completed tasks and retrospectives where you highlight what all things went good, and what all things needs improvement. The retrospective doesn’t not just include what all things couldn’t be completed, but it is more than that to include any work related issue: too many meetings, dependencies, leaves, anything that impacts workplace.
 
