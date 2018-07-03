@@ -6,7 +6,7 @@ subtitle: Versioning per branch
 
 There is this awesome [release plugin](https://github.com/researchgate/gradle-release) which takes care of the usual stuff and more, like checking uncommitted files, checking if commit is pushed or not, and adding release tag etc.
 
-You can also customize the release from specific branch only.
+You can also customize the release from a specific branch.
 
 But then, it still doesn't support versioning per branch. In cases, where you want to have some snapshot (or any other classifier) release from feature branches, and want to keep that separate from main RELEASE versions.
 
