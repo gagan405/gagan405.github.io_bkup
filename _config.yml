@@ -4,9 +4,9 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://cafeaffe.umlaut.in"
+url: "https://cafeaffe.minbox.in"
 baseurl: ""
-enforce_ssl: umlaut.in
+enforce_ssl: https://cafeaffe.minbox.in
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -29,7 +29,7 @@ navbar-links:
 #    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
 #    - Learn markdown: "http://www.markdowntutorial.com/"
 #    - GitHub Pages: "https://pages.github.com/"
-  Author's home: "http://umlaut.in"
+  Author's home: "https://cafeaffe.minbox.in"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -45,7 +45,7 @@ avatar: "/img/avatar-icon.png"
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: Gagan B Mishra
-  email: "gagan.mishra@gmail.com"
+  email: "gagan@minbox.in"
   facebook: gagan.mishra.12  
   github: gagan405
   twitter: __gbm
@@ -87,7 +87,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "umlaut.in"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "cafeaffe.minbox.in"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
