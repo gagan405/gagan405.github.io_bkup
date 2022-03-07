@@ -3,9 +3,9 @@ layout: page
 title: About me
 ---
 
-I am Gagan Mishra. I am a programmer. And I like [Umlaut](http://umlaut.in).
+I am Gagan Bihari Mishra. I am a programmer.
 
-I am an Indian by nationality and currently living in Berlin, Germany. I like to travel, cycle, read books and write about things I like or dislike.
+I am an Indian by nationality and currently living in Seattle, US. I like to travel, cycle, read books and write about things I like or dislike.
 
 - My career story on [linkedIn](https://www.linkedin.com/in/gaganmishra/)
 - Some of my projects on [Github](https://github.com/gagan405)
