@@ -61,8 +61,7 @@ Once the output of JFR is available, we could analyze with [JDK Mission Control]
 
 The humongous allocations will be visible under `Event Browser -> Allocation Outside TLAB`.
 
-![](https://github.com/gagan405/gagan405.github.io/blob/master/_includes/JDKMissionControl_HumongousAllocation.png)
-
+![ScreenShot](https://github.com/gagan405/gagan405.github.io/blob/master/_includes/JDKMissionControl_HumongousAllocation.png)
 **Step 4 - Removing humongous allocations**
 
 As seen above, the humongous allocations were created during certain `serialization` process. On going through the code, it was seen that the code flow actually
