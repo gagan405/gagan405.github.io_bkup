@@ -45,7 +45,22 @@ Sample logs:
 
 * **Step 3 - Tracing the humongous allocations**
 
-TBD
+Now that we know that humnogous object allocations are causing so much of trouble, the next step is to identify where exactly the allocations are happening. There are a few blog posts like [this](https://www.pingtimeout.fr/posts/2020-01-23-trace-humongous-allocations-with-bpf/) which explain a way to trace them. However I tried with [JavaFlightRecorder](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm) which worked quite smooth. 
+
+Recording with Java Flight Recorder:
+
+~~~
+jdk1.8/bin/jcmd 2092 JFR.start settings=profile
+2092:
+Started recording 10. No limit specified, using maxsize=250MB as default.
+
+Use jcmd 2092 JFR.dump name=10 filename=FILEPATH to copy recording data to file.
+~~~
+
+Once the output of JFR is available, we could analyze with [JDK Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
+
+The humongous allocations will be visible under `Event Browser -> Allocation Outside TLAB`.
+
 
 * **Step 4 - Removing humongous allocations**
 
