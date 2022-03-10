@@ -12,7 +12,7 @@ involved a bunch of serialization/deserialization along with quite a lot of netw
 
 Upon enabling G1GC for the same service, the GC activities spiked up by at least 15% and 
 
-* Step 1 - Enable GC logs
+* **Step 1 - Enable GC logs**
 
 Enabling GC logs provides more details on whats going on in the service.
 
@@ -27,7 +27,7 @@ Enabling GC logs provides more details on whats going on in the service.
 -XX:+PrintStringDeduplicationStatistics
 ~~~
 
-* Step 2 - Analyze the logs
+* **Step 2 - Analyze the logs**
 
 After enabling detailed GC activity logging, we could see that a lot of GC pauses were ocuring due to `Humongous Object` allocations. [Humongous Objects](https://docs.oracle.com/javase/10/gctuning/garbage-first-garbage-collector.htm#JSGCT-GUID-D74F3CC7-CC9F-45B5-B03D-510AEEAC2DAC) mean, memory
 chunks of size more than 50% of the G1 block size. The G1 block size depends on the heap memory size and for us it was 4M. So, essentially, any memory allocation more than
@@ -43,14 +43,16 @@ Sample logs:
 2021-11-26T09:21:04.983+0000: 87445.819: [GC pause (G1 Humongous Allocation) (young)
 ~~~
 
-* Step 3 - Tracing the humongous allocations
+* **Step 3 - Tracing the humongous allocations**
 
 TBD
 
-* Step 4 - Removing humongous allocations
+* **Step 4 - Removing humongous allocations**
 
 TBD
 
 **Conclusion**
 
 TBD
+
+**References**
