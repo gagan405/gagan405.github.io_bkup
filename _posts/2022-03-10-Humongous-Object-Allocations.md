@@ -61,7 +61,7 @@ Once the output of JFR is available, we could analyze with [JDK Mission Control]
 
 The humongous allocations will be visible under `Event Browser -> Allocation Outside TLAB`.
 
-![ScreenShot](img/JDKMissionControl_HumongousAllocation.png)
+![ScreenShot](https://github.com/gagan405/gagan405.github.io/blob/27921b8c3a34fec2441686ef0e0ad8e727d93a72/img/JDKMissionControl_HumongousAllocation.png)
 
 **Step 4 - Removing humongous allocations**
 
