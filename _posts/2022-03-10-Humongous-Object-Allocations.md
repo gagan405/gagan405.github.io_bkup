@@ -61,13 +61,133 @@ Once the output of JFR is available, we could analyze with [JDK Mission Control]
 
 The humongous allocations will be visible under `Event Browser -> Allocation Outside TLAB`.
 
+![](https://github.com/gagan405/gagan405.github.io/blob/master/_includes/JDKMissionControl_HumongousAllocation.png)
+
 
 * **Step 4 - Removing humongous allocations**
 
-TBD
+As seen above, the humongous allocations were created during certain `serialization` process. On going through the code, it was seen that the code flow actually
+serialized a java object to bytes, compressed it to a gzip bytes, encoded within Base64 and then uploaded to S3.
+
+The serialization flow does this:
+
+1. ObjectMapper writes to a byte array: This allocates the most of the memory as seen above in the JFR recording.
+2. The byte array is gzipped creating another byte array, shorter in size
+3. The resulting byte array is Base64 encoded which creates another byte array of a bit larger size.
+4. The byte array is then converted to InputStream and is uploaded to S3.
+
+Sample code:
+
+~~~
+public byte[] serialize(T obj) throws IOException, ParseException {
+    byte[] bytes = this.mapper.writeValueAsBytes(obj);
+
+    ByteArrayOutputStream output = new ByteArrayOutputStream(1024);
+
+    GZIPOutputStream gzip = new GZIPOutputStream(output) {
+        {
+            def.setLevel(Deflater.BEST_COMPRESSION);
+        }
+    };
+    
+    gzip.write(bytes);
+    gzip.close();
+
+    return output.toByteArray();
+
+}
+/* ... Else where ... */
+
+byte[] serialized = Base64.encodeBase64(serialize(object));
+
+ObjectMetadata objectMetadata = new ObjectMetadata();
+objectMetadata.setContentLength(serializedArtifacts.length);
+
+PutObjectRequest putObjectRequest = new PutObjectRequest(s3Bucket,
+    "some-s3-key",
+    new ByteArrayInputStream(serialized),
+    objectMetadata);
+
+s3Client.putObject(putObjectRequest);
+
+~~~
+
+
+The above flow actually created 3 new instances of `byte[]` in each execution. Could we do better? Can we remove certain byte array creations?
+
+Turns out we can.
+
+The new flow look slike:
+
+1. Object mapper can write to an outputStream instead of a byte array.
+2. OutputStream can be wrapped inside Base64.encoder which will not require additional array creation for base64 conversion.
+3. Gzip can take the “wrapped” output stream
+4. ObjectMapper can directly write to the Gzipped stream. So no need to create a byte array.
+5. S3 takes an InputStream. So we can directly convert the above output stream to an inputStream.
+
+Sample code after the changes:
+
+Serilization:
+
+~~~
+public InputStream serializeToInputStream(T obj) throws IOException {
+    ByteArrayOutputStream output = new ByteArrayOutputStream(1024);
+
+    OutputStream stream = java.util.Base64.getEncoder().wrap(output);
+    GZIPOutputStream gzip = new GZIPOutputStream(stream)
+    {
+        {
+            def.setLevel(Deflater.BEST_COMPRESSION);
+        }
+    };
+
+    this.mapper.writeValue(gzip, obj);
+
+    PipedInputStream in = new PipedInputStream();
+    final PipedOutputStream out = new PipedOutputStream(in);
+    new Thread(() -> {
+        try {
+            output.writeTo(out);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to convert to InputStream", e);
+        } finally {
+            // close the PipedOutputStream here because we're done writing data
+            // once this thread has completed its run
+            try {
+                out.close();
+            } catch (IOException e) {
+                // ignore
+            }
+        }
+    }).start();
+    return in;
+}
+~~~
+
+And then use the above `InputStream` to upload objects to S3:
+
+~~~
+InputStream inputStream = serializer.serializeToInputStream(object);
+
+PutObjectRequest putObjectRequest = new PutObjectRequest(s3Bucket,
+               "some-s3-key",
+                inputStream,
+                objectMetadata);
+ 
+s3Client.putObject(putObjectRequest);
+~~~
+
+With the above changes, I ran the JFR once again, and the humongous object allocations were gone! With a substantial (~15%) improvement in GC activities and reduction of FullGC times.
 
 **Conclusion**
 
-TBD
+* We should avoid creation of un-necessary byte arrays if we can work with IO streams. The catch here is that, S3 upload might fail in mid-stream and that needs to be taken care of in the code.
+* We should avoid creation of intermediate strings through ObjectMapper. Not covered here in this post, but I did find quite a few instances where we were doing `objectMapper.writeValueAsString()` and then getting a byte array out of it. The intermediate strings take almost 3 times more memory than byte arrays and provides no great use.
+* JFR and JMC are great tools to get better insights into application behavior.
 
-**References**
+**Additional Resources**
+
+ - https://www.infoq.com/articles/tuning-tips-G1-GC/
+ - https://www.oracle.com/technical-resources/articles/java/g1gc.html
+ - https://docs.oracle.com/javase/9/gctuning/garbage-first-garbage-collector-tuning.htm#JSGCT-GUID-43ADE54E-2054-465C-8376-81CE92B6C1A4
+
