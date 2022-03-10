@@ -117,7 +117,7 @@ The above flow actually created 3 new instances of `byte[]` in each execution. C
 
 Turns out we can.
 
-The new flow look slike:
+The new flow looks like:
 
 1. Object mapper can write to an outputStream instead of a byte array.
 2. OutputStream can be wrapped inside Base64.encoder which will not require additional array creation for base64 conversion.
