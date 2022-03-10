@@ -10,7 +10,8 @@ Recently I was debugging into latency problems in a service and figured quite a 
 This was a Java 8 service running with ParallelGC, primarily consuming messages from an SQS, processing, and sending the response back to another SQS. The processing
 involved a bunch of serialization/deserialization along with quite a lot of network calls.
 
-Upon enabling G1GC for the same service, the GC activities spiked up by at least 15% and 
+Upon enabling G1GC for the same service, the GC activities spiked up by at least 15% and processing latency increased proportionally. The below is a gist of
+finding out issues related to GC and resolving those.
 
 **Step 1 - Enable GC logs**
 
