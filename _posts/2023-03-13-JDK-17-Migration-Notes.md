@@ -66,7 +66,8 @@ public class Delayer {
     }
 }
 ~~~
-****Static methods using Date Times****
+
+***Static methods using Date Times***
 
 If the static methods rely on date time, consider using `mockMethods` in the real class and call those from the tests.
 Credit where due: [Reference on the below snippet](https://dzone.com/articles/mock-java-datetime-for-testing)
