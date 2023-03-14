@@ -159,6 +159,19 @@ Caused by: java.lang.IllegalStateException: Unable to initialize jaxbContext
 
 Solution is simple. Just add the dependencies to [Jaxb-api](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api).
 
+Also, JaxB legacy properties have been deprecated long, and they need to be replaced with their upgraded counterparts. For example:
+~~~
+Marshaller marshaller = jaxbContext.createMarshaller();
+marshaller.setProperty("com.sun.xml.internal.bind.xmlDeclaration", Boolean.FALSE);
+~~~
+
+the above snippet needs to be changed to
+
+~~~
+Marshaller marshaller = jaxbContext.createMarshaller();
+marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.FALSE);
+~~~
+
 Similarly, many of the old JVM args are now deprecated and that would cause the service to fail to start. Those can simply be ignored by using the flag `-XX:+IgnoreUnrecognizedVMOptions`
 
 **Validation**
